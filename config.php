@@ -8,10 +8,10 @@ if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1'
     $db_name  = "db_ecommerce2"; // Nama database di phpMyAdmin lokal Anda
 } else {
     // === KONFIGURASI UNTUK HOSTING (INFINITYFREE) ===
-    $host     = "sqlXXX.infinityfree.com"; // Ganti dengan MySQL Hostname InfinityFree Anda
-    $user     = "if0_38123456";           // Ganti dengan Username MySQL InfinityFree Anda
-    $pass     = "PASSWORD_HOSTING_MU";     // Ganti dengan Password hosting Anda
-    $db_name  = "if0_38123456_dbpenjualan"; // Ganti dengan Nama DB InfinityFree Anda
+    $host     = "sql106.infinityfree.com"; // Ganti dengan MySQL Hostname InfinityFree Anda
+    $user     = "if0_42652939";           // Ganti dengan Username MySQL InfinityFree Anda
+    $pass     = "Cobac0ba26";     // Ganti dengan Password hosting Anda
+    $db_name  = "if0_42652939_db_ecommerce2"; // Ganti dengan Nama DB InfinityFree Anda
 }
 
 $koneksi = mysqli_connect($host, $user, $pass, $db_name);
