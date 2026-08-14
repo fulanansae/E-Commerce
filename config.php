@@ -3,10 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "db_ecommerce2";
+$host = "sql106.infinityfree.com";
+$user = "if0_42652939";
+$pass = "Cobac0ba26";
+$db   = "if0_42652939_db_ecommerce2";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
