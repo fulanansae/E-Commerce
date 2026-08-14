@@ -351,6 +351,38 @@ $orders = mysqli_stmt_get_result($stmt_orders);
             color: #34d399;
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
+
+        /* Styling Pop-up Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981; /* Warna hijau sukses */
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Class saat Toast Muncul */
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast i {
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -529,6 +561,36 @@ $orders = mysqli_stmt_get_result($stmt_orders);
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
         }
+
+        // Tambahkan fungsi untuk memunculkan Pop-up
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            const toastMsg = document.getElementById('toast-message');
+            
+            toastMsg.innerText = message;
+            toast.classList.add('show');
+
+            // Sembunyikan otomatis setelah 2.5 detik
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        // Update fungsi addToCart yang sudah ada
+        function addToCart(nama, harga) {
+            const parsedHarga = Number(harga) || 0;
+            cart.push({ nama: nama, harga: parsedHarga });
+            
+            updateCartUI();
+
+            // PANGGIL POP-UP DI SINI
+            showToast(`"${nama}" berhasil ditambah ke keranjang!`);
+        }
     </script>
+    <!-- Container Pop-up Toast -->
+    <div id="toast-notification" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Produk berhasil ditambahkan!</span>
+    </div>
 </body>
 </html>
