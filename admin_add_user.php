@@ -4,7 +4,7 @@ require_once 'config.php';
 
 // Proteksi Halaman: Hanya Admin terautentikasi yang bisa akses
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header("Location: login.php");
+    header("Location: login_baru.php");
     exit();
 }
 
