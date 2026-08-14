@@ -63,33 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
  
-// B. Edit Produk (LAMA)
-/* if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'edit_product') {
-    $id       = (int)$_POST['product_id'];
-    $nama     = mysqli_real_escape_string($conn, trim($_POST['nama_produk']));
-    $kategori = mysqli_real_escape_string($conn, trim($_POST['kategori']));
-    $harga    = (int)$_POST['harga'];
-    
-    $newGambar = handleUploadImage($_FILES['gambar']);
-
-    if ($id > 0 && !empty($nama) && $harga > 0) {
-        if ($newGambar) {
-            $stmt = mysqli_prepare($conn, "UPDATE products SET nama_produk = ?, kategori = ?, harga = ?, gambar = ? WHERE id = ?");
-            mysqli_stmt_bind_param($stmt, "ssisi", $nama, $kategori, $harga, $newGambar, $id);
-        } else {
-            $stmt = mysqli_prepare($conn, "UPDATE products SET nama_produk = ?, kategori = ?, harga = ? WHERE id = ?");
-            mysqli_stmt_bind_param($stmt, "ssii", $nama, $kategori, $harga, $id);
-        }
-
-        if (mysqli_stmt_execute($stmt)) {
-            $message = "Data produk berhasil diperbarui!";
-        } else {
-            $error = "Gagal memperbarui data produk.";
-        }
-        mysqli_stmt_close($stmt);
-    }
-}
-*/
 
 // B. Edit Produk (BARU)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'edit_product') {
@@ -185,7 +158,9 @@ $orders   = mysqli_query($conn, "SELECT orders.*, users.username FROM orders JOI
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - StoreApp</title>
+     <!-- Favicon SVG berbentuk Toko/Bag tanpa perlu simpan file gambar -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
+    <title>Admin Dashboard - Warung Kode</title>
     
     <!-- Typography & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
