@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Proteksi Halaman: Wajib Login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: login_baru.php");
     exit();
 }
 
@@ -55,7 +55,7 @@ $total_bayar = 150000;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - StoreApp</title>
+    <title>Checkout - Warung Kode</title>
     
     <!-- CSS Leaflet untuk Maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
